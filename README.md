@@ -1,7 +1,3 @@
-Bypassing an admin panel depends on the security flaws present in the target application. Here are some common techniques used for bypassing admin panel authentication:
-
----
-
 ### **1. Default Credentials / Credential Stuffing**
 - Many web applications have default usernames and passwords (e.g., `admin:admin`, `root:toor`).
 - Try common credentials from leaked databases.
